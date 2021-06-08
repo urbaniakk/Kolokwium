@@ -17,7 +17,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }        
+        } 
+        .square{
+            display: flex;
+            flex-direction: row;
+        }
+
     </style>
 </head>
 <body>
@@ -27,14 +32,22 @@
             <p>1</p>
         </div>
     </div>
-    
+
+    <div class="square" v-for="row in rows">
+        <div class="cell" v-for="column in columns">
+             <p>{{ rows }},{{ columns }}</p>
+        </div>
+    </div>
+
     <script>
     var app = new Vue({
         el: '#app',
         data: {
             message: 'Powodzenia',
-            rows: 10,
-            columns: 10
+            rows: 10, 
+            columns: 10,
+            p: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
+            q: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
         }
     })
     </script>
