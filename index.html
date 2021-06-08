@@ -22,20 +22,20 @@
             display: flex;
             flex-direction: row;
         }
-
+        .cell .active {
+            background: red;
+            color: white;
+        }
     </style>
+
 </head>
 <body>
     <div id="app">
-    {{ message }}
-        <div class="cell">
-            <p>1</p>
-        </div>
-    </div>
-
-    <div class="square" v-for="row in rows">
-        <div class="cell" v-for="column in columns">
-             <p>{{ rows }},{{ columns }}</p>
+        {{ message }}
+        <div class="square" v-for="rows in rows">
+            <div class="cell" v-for="columns in columns" :class="[active.substring(0, 1) == rows && active.substring(3, 1) == columns ? 'active' : 'cell']">
+                <p>{{ rows }},{{ columns }}</p>
+            </div>
         </div>
     </div>
 
@@ -46,8 +46,7 @@
             message: 'Powodzenia',
             rows: 10, 
             columns: 10,
-            p: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
-            q: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+            active: "1,1"
         }
     })
     </script>
