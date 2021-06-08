@@ -47,6 +47,12 @@
             rows: 10, 
             columns: 10,
             active: "1,1"
+        },
+
+        methods: {
+            klikniecie: function(row, column){
+                this.active = row.toString() + "," + column.toString();
+            }
         }
     })
     </script>
